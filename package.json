@@ -1,0 +1,28 @@
+{
+  "name": "demo-unsplash-gallery",
+  "version": "1.0.0",
+  "description": "## 说明",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --content-base dist --port 6200 --color --progress --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fate-lovely/demo-unsplash-gallery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fate-lovely/demo-unsplash-gallery/issues"
+  },
+  "homepage": "https://github.com/fate-lovely/demo-unsplash-gallery#readme",
+  "dependencies": {
+    "css-loader": "0.25.0",
+    "jquery": "3.1.1",
+    "style-loader": "0.13.1",
+    "stylus": "0.54.5",
+    "stylus-loader": "2.3.1",
+    "webpack": "1.13.3",
+    "webpack-dev-server": "1.16.2"
+  }
+}
