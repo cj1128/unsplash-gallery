@@ -3,5 +3,47 @@
 * @Date: 2016-10-29 16:39:15
 * @Email: cj.ting@fugetech.com
 */
-h1
-  color: red
+
+body
+  font-size: 18px
+
+.container
+  width: 80%
+  max-width: 1176px
+  margin: auto
+  > h1
+    text-align: center
+    font-size: 3rem
+
+.photos-container
+  > .control
+    margin-bottom: 20px
+    text-align: center
+    > svg
+      width: 20px
+      fill: gray
+      margin: 0 10px
+      cursor: pointer
+      transition: fill 0.5s
+      &:hover
+        fill: black
+      &.active
+        fill: black
+
+.photo
+  width: 100%
+
+.layout-list
+  .photo
+    margin-bottom: 20px
+
+.layout-grid
+  display: flex
+  align-items: flex-start
+  flex-wrap: wrap
+  margin: 20px 0
+  justify-content: space-between
+  .photo
+    width: 375.95px
+    margin: 20px 0
+

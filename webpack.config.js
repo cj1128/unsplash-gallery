@@ -18,7 +18,11 @@ module.exports = {
         test: /\.styl$/,
         exclude: /node_modules/,
         loader: "style!css!stylus",
-      }
+      },
+      {
+        test: /\.css$/,
+        loader: "style!css",
+      },
     ],
   },
 }
