@@ -5,6 +5,18 @@
 */
 
 var path = require("path")
+var webpack = require("webpack")
+
+var env = process.env.NODE_ENV || "dev"
+
+var devPlugins = []
+var productionPlugins = [
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false,
+    },
+  })
+]
 
 module.exports = {
   entry: "./src/main.js",
@@ -25,4 +37,5 @@ module.exports = {
       },
     ],
   },
+  plugins: env === "dev" ? devPlugins : productionPlugins,
 }

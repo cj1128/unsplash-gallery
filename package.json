@@ -4,7 +4,8 @@
   "description": "## 说明",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --content-base dist --port 6200 --color --progress --hot --inline"
+    "dev": "webpack-dev-server --content-base dist --port 6200 --color --progress --hot --inline",
+    "build": "NODE_ENV=production webpack --color --progress"
   },
   "repository": {
     "type": "git",
