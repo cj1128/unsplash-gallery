@@ -19,13 +19,18 @@ var productionPlugins = [
 ]
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: "./src/main.jsx",
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
   },
   module: {
     loaders: [
+      {
+        test: /\.jsx$/,
+        loader: "babel",
+        exclude: /node_modules/,
+      },
       {
         test: /\.styl$/,
         exclude: /node_modules/,
@@ -34,6 +39,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: "style!css",
+      },
+      {
+        test: /\.svg$/,
+        loader: "url",
       },
     ],
   },
