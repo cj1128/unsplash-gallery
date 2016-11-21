@@ -1,6 +1,6 @@
 /*
 * @Author: CJ Ting
-* @Date: 2016-10-29 16:13:22
+* @Date: 2016-11-21 14:39:48
 * @Email: cj.ting@fugetech.com
 */
 
@@ -23,11 +23,11 @@ module.exports = {
       {
         test: /\.styl$/,
         exclude: /node_modules/,
-        loader: "style!css!stylus",
+        loader: "style!css?-autoprefixer!postcss!stylus",
       },
       {
         test: /\.css$/,
-        loader: "style!css",
+        loader: "style!css?-autoprefixer!postcss",
       },
       {
         test: /\.(svg|eot|woff2|woff|ttf|jpg|png|jpeg)(\?.*)?$/,
@@ -43,8 +43,16 @@ module.exports = {
     extensions: ["", ".js", ".jsx", ".styl"],
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+    }),
     new webpack.DefinePlugin({
-      __DEV__: true,
+      __DEV__: false,
+      "process.env": {
+        NODE_ENV: JSON.stringify("production"),
+      },
     }),
   ],
 }

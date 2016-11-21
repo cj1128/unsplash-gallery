@@ -1,0 +1,71 @@
+/*
+* @Author: CJ Ting
+* @Date: 2016-10-29 16:39:15
+* @Email: cj.ting@fugetech.com
+*/
+
+body
+  font-size: 18px
+
+.gallery
+  width: 80%
+  max-width: 1176px
+  margin: auto
+  ._loading
+    margin: 120px auto
+
+.gallery__header
+  text-align: center
+  font-size: 3rem
+  font-family: nanum_penregular
+  font-size: 5rem
+
+.gallery__layout
+  margin-bottom: 20px
+  text-align: center
+
+.gallery__layout__btn
+  width: 20px
+  fill: gray
+  margin: 0 10px
+  cursor: pointer
+  transition: fill 0.5s
+  &:hover
+    fill: black
+
+.gallery__zoomin
+  position: fixed
+  z-index: 9999
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  cursor: zoom-out
+  background-size: cover
+.gallery__zoomin--hide
+  opacity: 0
+  pointer-events: none
+
+.gallery__layout__btn--active
+  fill: black
+
+.gallery__photo-wrapper
+  position: relative
+  background: #eee
+  cursor: zoom-in
+  border-radius: 5px
+  margin-bottom: 30px
+
+.gallery__photo
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  border-radius: 5px
+
+.gallery__grid-photos
+  display: flex
+  justify-content: space-between
+
+.gallery__grid-photos__grid
+  width: 32%
