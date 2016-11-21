@@ -5,7 +5,7 @@
 */
 
 body
-  font-size: 18px
+  font-size: 14px
 
 .gallery
   width: 80%
@@ -16,9 +16,9 @@ body
 
 .gallery__header
   text-align: center
-  font-size: 3rem
   font-family: nanum_penregular
   font-size: 5rem
+  color: #484848
 
 .gallery__layout
   margin-bottom: 20px
@@ -42,6 +42,7 @@ body
   height: 100%
   cursor: zoom-out
   background-size: cover
+
 .gallery__zoomin--hide
   opacity: 0
   pointer-events: none
@@ -50,11 +51,21 @@ body
   fill: black
 
 .gallery__photo-wrapper
+  margin-bottom: 30px
+  position: relative
+
+.gallery__photo-container
   position: relative
   background: #eee
-  cursor: zoom-in
   border-radius: 5px
-  margin-bottom: 30px
+
+.gallery__photo-hover
+  cursor: zoom-in
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
 
 .gallery__photo
   position: absolute
@@ -62,6 +73,74 @@ body
   left: 0
   width: 100%
   border-radius: 5px
+
+
+.gallery__list-photos
+  .gallery__photo-info
+    margin: 20px 0
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.gallery__grid-photos
+  .gallery__photo-info
+    opacity: 0
+    pointer-events: none
+  .gallery__photo-info__like
+    position: absolute
+    top: 20px
+    right: 20px
+    background: #f0f0f0
+    opacity: 0.9
+  .gallery__photo-info__person
+    color: #ccc
+    position: absolute
+    bottom: 28px
+    left: 20px
+    &:hover
+      color: white
+  .gallery__photo-info__download
+    position: absolute
+    bottom: 20px
+    right: 20px
+    background: #f0f0f0
+    opacity: 0.9
+  .gallery__photo-wrapper:hover
+    .gallery__photo-info
+      opacity: 1
+      transition: opacity 0.5s
+      pointer-events: auto
+    .gallery__photo-hover
+      background-image: linear-gradient(180deg,rgba(0,0,0,.25) 0,transparent 40%,transparent 60%,rgba(0,0,0,.3));
+
+.gallery__photo-info__person
+  color: #999
+  &:hover
+    color: #111
+
+.gallery__photo-info__like
+  display: flex
+  align-items: center
+  margin: 0
+  color: #999
+  fill: #777
+  border: solid 1px #ddd
+  padding: 8px 15px
+  border-radius: 5px
+  > i
+    color: #f15151
+    margin-right: 5px
+
+.gallery__photo-info__download
+  color: #999
+  border: solid 1px #ddd
+  padding: 8px 15px
+  border-radius: 5px
+  text-decoration: none
+  box-shadow: 0 1px 1px rgba(0,0,0,.04)
+  &:hover
+    color: #111
+    border-color: #999
 
 .gallery__grid-photos
   display: flex

@@ -18,14 +18,14 @@ const LayoutGrid = 1
 const PerPage = 30
 const ClientID = "47da73da2b740608b32dd1d201e72606000e8db1df885e6f2c72843cddca23a8"
 
-const URL = "https://api.unsplash.com/photos/curated"
+const URL = "https://api.unsplash.com/photos"
 
 export default class App extends React.Component {
   constructor() {
     super()
     this.page = 1
     this.state = {
-      layout: LayoutGrid,
+      layout: LayoutList,
       photos: [],
       showLoading: true,
       zoominImage: "",
@@ -69,29 +69,62 @@ export default class App extends React.Component {
     return (
       <div
         key={ photo.id }
-        onClick={ () => this.setState({zoominImage: photo.urls.full}) }
         className="gallery__photo-wrapper"
-        style={ {
-          paddingBottom: (photo.height / photo.width * 100) + "%",
-        } }
       >
-        <img
-          className="gallery__photo"
-          src={ photo.urls.regular }
-        />
-        {
-          index === this.state.photos.length - 6 ?
-            <Waypoint
-              onEnter={ () => {
-                if(hasFetched) return
-                hasFetched = true
-                this.setState({showLoading: true})
-                this.fetchData()
-              } }
-            />
-            :
-            null
-        }
+        <div
+          className="gallery__photo-container"
+          style={ {
+            paddingBottom: (photo.height / photo.width * 100) + "%",
+          } }
+        >
+          <img
+            className="gallery__photo"
+            src={ photo.urls.regular }
+          />
+
+          <div
+            onClick={ () => this.setState({zoominImage: photo.urls.full}) }
+            className="gallery__photo-hover"
+          />
+
+          {
+            index === this.state.photos.length - 6 ?
+              <Waypoint
+                onEnter={ () => {
+                  if(hasFetched) return
+                  hasFetched = true
+                  this.setState({showLoading: true})
+                  this.fetchData()
+                } }
+              />
+              :
+              null
+          }
+        </div>
+
+
+        <div className="gallery__photo-info">
+          <div className="gallery__photo-info__like">
+            <i className="fa fa-heart" />
+            <span>{ photo.likes }</span>
+          </div>
+
+          <a
+            target="_blank"
+            href={ photo.user.links.html }
+            className="gallery__photo-info__person"
+          >
+            { photo.user.name }
+          </a>
+
+          <a
+            href={ photo.urls.raw }
+            download={ true }
+            className="gallery__photo-info__download"
+          >
+            <i className="fa fa-arrow-down" />
+          </a>
+        </div>
       </div>
     )
   }
